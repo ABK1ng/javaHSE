@@ -5,13 +5,12 @@ import java.util.Random;
 
 public class Fourth {
     public static void main(String[] args) {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int rows = 0;
         int column = 0;
         int numRow = 0;
         int count = 0;
 
-        try {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             System.out.print("Введите количество строчек: ");
             rows = Integer.parseInt(reader.readLine());
             System.out.print("Введите количество столбцов: ");
