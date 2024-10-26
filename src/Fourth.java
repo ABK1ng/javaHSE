@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Fourth {
@@ -8,7 +10,7 @@ public class Fourth {
         int rows = 0;
         int column = 0;
         int numRow = 0;
-        int count = 0;
+        List <Integer> positiveNumber;
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             System.out.print("Введите количество строчек: ");
@@ -16,10 +18,6 @@ public class Fourth {
             System.out.print("Введите количество столбцов: ");
             column = Integer.parseInt(reader.readLine());
 
-            do {
-                System.out.print("Введите номер строки: ");
-                numRow = Integer.parseInt(reader.readLine());
-            } while (!(numRow > 0 && numRow <= rows));
         } catch (IOException e) {
             System.out.println(e.getStackTrace());
         }
@@ -34,9 +32,12 @@ public class Fourth {
             System.out.println();
         }
 
-        count = positiveNumber(matrix, numRow, column);
+        positiveNumber = positiveNumber(matrix, numRow, column);
 
-        System.out.print("Положительных чисел в " + numRow + " строке: " + count);
+        System.out.print("Положительные числа в матрице" + '\n');
+        for (int i = 0; i < positiveNumber.size(); i++) {
+            System.out.println("В " + (i + 1) + " строке: " + positiveNumber.get(i));
+        }
 
 
     }
@@ -53,12 +54,19 @@ public class Fourth {
         return matrix;
     }
 
-    public static int positiveNumber(int[][] matrix, int  rowNum, int column) {
+
+
+    public static List <Integer> positiveNumber(int[][] matrix, int  rowNum, int column) {
+        List <Integer> list = new ArrayList<>();
         int count = 0;
-        for (int i = 0; i < column; i++) {
-            if (matrix[rowNum - 1][i] % 2 == 0) count++;
+        for (int[] arr: matrix) {
+            for (int i: arr) {
+                if (i % 2 == 0) count++;
+            }
+            list.add(count);
+            count = 0;
         }
 
-        return count;
+        return list;
     }
 }
