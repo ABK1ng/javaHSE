@@ -17,13 +17,11 @@ public class Fourth {
             rows = Integer.parseInt(reader.readLine());
             System.out.print("Введите количество столбцов: ");
             column = Integer.parseInt(reader.readLine());
-
         } catch (IOException e) {
             System.out.println(e.getStackTrace());
         }
 
         int[][] matrix = createMatrix(rows, column);
-
         System.out.println("Матрица: ");
         for (int[] arr: matrix) {
             for (int i: arr) {
@@ -33,13 +31,10 @@ public class Fourth {
         }
 
         positiveNumber = positiveNumber(matrix, numRow, column);
-
         System.out.print("Положительные числа в матрице" + '\n');
         for (int i = 0; i < positiveNumber.size(); i++) {
             System.out.println("В " + (i + 1) + " строке: " + positiveNumber.get(i));
         }
-
-
     }
 
     public static int[][] createMatrix(int row, int column) {
@@ -50,11 +45,8 @@ public class Fourth {
                 matrix[i][j] = rnd.nextInt(1000);
             }
         }
-
         return matrix;
     }
-
-
 
     public static List <Integer> positiveNumber(int[][] matrix, int  rowNum, int column) {
         List <Integer> list = new ArrayList<>();
@@ -66,7 +58,6 @@ public class Fourth {
             list.add(count);
             count = 0;
         }
-
         return list;
     }
 }
