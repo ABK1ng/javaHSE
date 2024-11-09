@@ -30,7 +30,7 @@ public class Fourth {
             System.out.println();
         }
 
-        positiveNumber = positiveNumber(matrix, numRow, column);
+        positiveNumber = positiveNumber(matrix);
         System.out.print("Положительные числа в матрице" + '\n');
         for (int i = 0; i < positiveNumber.size(); i++) {
             System.out.println("В " + (i + 1) + " строке: " + positiveNumber.get(i));
@@ -48,7 +48,7 @@ public class Fourth {
         return matrix;
     }
 
-    public static List <Integer> positiveNumber(int[][] matrix, int  rowNum, int column) {
+    public static List <Integer> positiveNumber(int[][] matrix) {
         List <Integer> list = new ArrayList<>();
         int count = 0;
         for (int[] arr: matrix) {

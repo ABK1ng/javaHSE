@@ -2,7 +2,9 @@ package Literature;
 
 //Task 5
 
-public class Literature {
+import java.util.Comparator;
+
+public class Literature  {
     private String literatureSourceCode;
     private String typeLiterature;
     private String bookName;
@@ -87,4 +89,5 @@ public class Literature {
                 ", author='" + author + '\'' +
                 '}';
     }
+
 }
